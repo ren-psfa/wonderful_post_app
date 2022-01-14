@@ -1,0 +1,2 @@
+class SumpleArticle < ApplicationRecord
+end
