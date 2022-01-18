@@ -45,5 +45,6 @@ module WonderfulPostApp
     end
 
     config.middleware.use ActionDispatch::Flash
+    config.i18n.default_locale = :ja
   end
 end
