@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :sumple_articles
   resources :articles
   # トップページの実装
