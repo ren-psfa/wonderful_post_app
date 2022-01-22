@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :sumple_articles
   resources :articles
+  resources :mypage
   # トップページの実装
   root 'articles#index'
   # root 'articles#index'
