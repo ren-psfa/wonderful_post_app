@@ -5,7 +5,9 @@
 
 
 <h1>記事</h1>
+<%= render partial: "search" %>
 
+<%= paginate @articles %>
 <table class="table">
   <thead>
     <tr>
@@ -26,5 +28,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>

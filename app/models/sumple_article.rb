@@ -1,2 +1,0 @@
-class SumpleArticle < ApplicationRecord
-end

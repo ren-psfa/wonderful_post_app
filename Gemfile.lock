@@ -83,6 +83,18 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -166,6 +178,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    seed-fu (2.3.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -214,6 +229,7 @@ DEPENDENCIES
   devise-i18n
   devise-i18n-views
   jbuilder (~> 2.7)
+  kaminari
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   pry-byebug
@@ -223,6 +239,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.7)
   rails-i18n (~> 6.0)
   sass-rails (>= 6)
+  seed-fu
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

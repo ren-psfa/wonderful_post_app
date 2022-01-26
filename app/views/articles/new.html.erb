@@ -1,6 +1,8 @@
 <h1>記事編集</h1>
 
 <%= render 'form', article: @article %>
-
+<% if current_user&.id == @article.user_id %>
 <%= link_to '一覧', articles_path %>
+<% else %>
 <a class="btn btn-secondary" href="/mypage">一覧</a>
+<% end %>

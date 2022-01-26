@@ -4,12 +4,23 @@ class ArticlesController < ApplicationController
 
   # before_action :protect_user, only: %i[ create edit update destroy ]
 
-  def home
 
-  end
+
+  # def search
+  #   articles = Article.all
+  #   if params[:title].present?
+  #     articles = Article.where('title LIKE ?', "%#{params[:title]}%")
+  #   else
+  #     articles = Article.none
+  #   end
+  # end
 
   def index
-    @articles = Article.all
+    articles = Article.all
+    # 検索機能の実装
+    articles = articles.where("title LIKE ?", "%#{params[:title]}%") if params[:title].present?
+    # ページネーションの実装
+    @articles = articles.page(params[:page]).per(25)
   end
 
   def show
