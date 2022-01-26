@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   sessions: 'users/sessions'
   }
 
-  resources :sumple_articles
   resources :articles
   resources :mypage
   # トップページの実装
   root 'articles#index'
-  # root 'articles#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # マイページのルーティング
+  get '/mypage', to: 'mypage#index'
+  # 検索のルーティング
+  # get '/_search', to: 'articles#search'
 end
