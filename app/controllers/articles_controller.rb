@@ -16,7 +16,10 @@ class ArticlesController < ApplicationController
   # end
 
   def index
+    # すべての記事を表示
     articles = Article.all
+    # すべてのタグを表示
+    # @tag_list = Tag.all
     # 検索機能の実装
     articles = articles.where("title LIKE ?", "%#{params[:title]}%") if params[:title].present?
     # ページネーションの実装
@@ -24,22 +27,29 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    # 選択された記事を表示
     @article = Article.find(params[:id])
+    # 選択された記事のタグを表示
+    # @articl_tags = @article.tags
   end
 
   def new
     @article = Article.new
+    # @tag_list = Tag.all
   end
 
   def edit
+    # @tag_list = @article.tags.pluck(:name).join(",")
   end
 
   def create
     # model からインスタンスを作成
     @article = current_user.articles.new(article_params)
-
+    # タグの名前を参照
+    # tag_list = params[:article][:tag_ids].split(nil)
     # インスタンスをdatabaseに保存
     if @article.save
+      # @article.save_tag(tag_list)
       redirect_to @article, notice: "#{t('activerecord.models.article')}を作成しました。"
     else
       render :new, status: :unprocessable_entity
@@ -47,7 +57,9 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    # tag_list = params[:article][:tag_ids].split(nil)
     if @article.update(article_params)
+      # @article.save_tag(tag_list)
       redirect_to @article, notice: "#{t('activerecord.models.article')}を編集しました。"
     else
       render :edit, status: :unprocessable_entity
@@ -66,7 +78,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, tag_ids:[])
   end
 
 

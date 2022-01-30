@@ -3,6 +3,9 @@
 <p>
   <strong>タイトル:</strong>
   <%= @article.title %>
+  <% @article.tags.each do |tag| %>
+    <span class="badge rounded-pill bg-primary"><%= tag.name%></span>
+  <% end %>
 </p>
 
 <p>

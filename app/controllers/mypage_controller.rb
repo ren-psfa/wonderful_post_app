@@ -14,9 +14,10 @@ before_action :set_article, only: %i[edit update destroy]
 
 
   def index
-    articles = current_user.articles.all
-    articles = articles.where("title LIKE ?", "%#{params[:title]}%") if params[:title].present?
-    @articles = articles.page(params[:page]).per(25)
+    @articles = current_user.articles.all
+    # @tag_list = Tag.all
+    @articles = @articles.where("title LIKE ?", "%#{params[:title]}%") if params[:title].present?
+    @articles = @articles.page(params[:page]).per(25)
   end
 
 
