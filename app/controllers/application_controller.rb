@@ -10,10 +10,6 @@ class ApplicationController < ActionController::Base
     articles_path
   end
 
-  def after_destroy_path_for(resource)
-    mypage_path
-  end
-
   protected
 
   def configure_permitted_parameters
